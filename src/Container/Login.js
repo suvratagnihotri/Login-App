@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Login.css";
+// import Welcome from "./Welcome";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -24,7 +25,9 @@ export default function Login() {
   };
     var url = "http://localhost:8080/user/login"
     fetch(url,requestOptions).then((response) => response.json())
-          .then(function(data) { console.log(data)})
+          .then(function(data) { 
+            console.log(data) 
+          })
           .catch((error) => console.log(error));
   }
 
