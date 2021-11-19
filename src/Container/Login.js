@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Login.css";
+// import { useNavigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 // import Welcome from "./Welcome";
 
 export default function Login() {
@@ -26,7 +28,13 @@ export default function Login() {
     var url = "http://localhost:8080/user/login"
     fetch(url,requestOptions).then((response) => response.json())
           .then(function(data) { 
-            console.log(data) 
+            var boolean = data
+            if(boolean === true){
+              console.log("Welcome to the main page")
+              return (
+                <Navigate to='/home'/>
+              );
+            } 
           })
           .catch((error) => console.log(error));
   }
